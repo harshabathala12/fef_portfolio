@@ -17,8 +17,8 @@ const Button = styled.button`
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  opacity: ${({ isVisible }) => (isVisible ? 1 : 0)};
-  visibility: ${({ isVisible }) => (isVisible ? 'visible' : 'hidden')};
+  opacity: ${({ $isVisible }) => ($isVisible ? 1 : 0)};
+  visibility: ${({ $isVisible }) => ($isVisible ? 'visible' : 'hidden')};
   transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
   z-index: 1000;
 
@@ -53,7 +53,7 @@ const BackToTop = () => {
   }, []);
 
   return (
-    <Button isVisible={isVisible} onClick={scrollToTop}>
+    <Button $isVisible={isVisible} onClick={scrollToTop}>
       <FaArrowUp />
     </Button>
   );

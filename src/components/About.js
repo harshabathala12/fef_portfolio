@@ -58,9 +58,9 @@ const TabsContainer = styled.div`
 `;
 
 const TabButton = styled.button`
-  background: ${({ isActive }) => (isActive ? 'var(--primary)' : 'var(--bg-light)')};
+  background: ${({ $isActive }) => ($isActive ? 'var(--primary)' : 'var(--bg-light)')};
   color: var(--text-light);
-  border: 1px solid ${({ isActive }) => (isActive ? 'var(--primary)' : '#2a2a2a')};
+  border: 1px solid ${({ $isActive }) => ($isActive ? 'var(--primary)' : '#2a2a2a')};
   padding: 0.8rem 1.5rem;
   border-radius: 50px;
   font-weight: 600;
@@ -139,8 +139,8 @@ const About = () => {
             </IllustrationContainer>
             <ContentContainer>
               <TabsContainer>
-                <TabButton isActive={activeTab === 'experience'} onClick={() => setActiveTab('experience')}>Experience</TabButton>
-                <TabButton isActive={activeTab === 'education'} onClick={() => setActiveTab('education')}>Education</TabButton>
+                <TabButton $isActive={activeTab === 'experience'} onClick={() => setActiveTab('experience')}>Experience</TabButton>
+                <TabButton $isActive={activeTab === 'education'} onClick={() => setActiveTab('education')}>Education</TabButton>
               </TabsContainer>
               <Card>
                 {activeTab === 'experience' && (

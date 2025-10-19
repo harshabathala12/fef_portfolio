@@ -40,7 +40,7 @@ const Card = styled.div`
   padding: 2rem;
   position: relative;
   overflow: hidden;
-  max-width: 700px; /* Constrain form width */
+  max-width: 700px;
   margin: 0 auto;
 
   &::before {
@@ -60,7 +60,7 @@ const Card = styled.div`
   }
 `;
 
-const FormContainer = styled(Card.withComponent('form'))`
+const FormContainer = styled(Card).attrs({ as: 'form' })`
   display: flex;
   flex-direction: column;
   gap: 1.5rem;

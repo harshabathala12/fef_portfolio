@@ -12,7 +12,7 @@ const Nav = styled.nav`
   z-index: 1000;
   padding: 1rem 0;
   transition: top 0.3s ease-in-out;
-  top: ${({ isVisible }) => (isVisible ? '0' : '-100px')};
+  top: ${({ $isVisible }) => ($isVisible ? '0' : '-100px')};
   display: flex;
   justify-content: center;
 `;
@@ -58,7 +58,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <Nav isVisible={isVisible}>
+    <Nav $isVisible={isVisible}>
       <NavLinks>
         <NavLink to="intro" spy={true} smooth={true} offset={-70} duration={500}>Intro</NavLink>
         <NavLink to="about" spy={true} smooth={true} offset={-70} duration={500}>About</NavLink>
