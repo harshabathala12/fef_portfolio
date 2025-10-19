@@ -1,24 +1,52 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Suspense, lazy } from 'react';
+import styled from 'styled-components';
+import { GlobalStyle } from './GlobalStyle';
+import Header from './components/Header';
+
+// Lazy load components for performance
+const Intro = lazy(() => import('./components/Intro'));
+const About = lazy(() => import('./components/About'));
+const Projects = lazy(() => import('./components/Projects'));
+const Skills = lazy(() => import('./components/Skills'));
+const Certifications = lazy(() => import('./components/Certifications'));
+const Contact = lazy(() => import('./components/Contact'));
+const Footer = lazy(() => import('./components/Footer'));
+const BackToTop = lazy(() => import('./components/BackToTop'));
+const CustomCursor = lazy(() => import('./components/CustomCursor'));
+const Navbar = lazy(() => import('./components/Navbar'));
+const BackgroundVideo = lazy(() => import('./components/BackgroundVideo'));
+
+const Loader = styled.div`
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+`;
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <GlobalStyle />
+      <Suspense fallback={<Loader>Loading Portfolio...</Loader>}>
+        <BackgroundVideo />
+        <CustomCursor />
+        <Navbar />
+        <Header />
+        <main>
+          <Intro />
+          <About />
+          <Projects />
+          <Skills />
+          <Certifications />
+          <Contact />
+        </main>
+        <Footer />
+        <BackToTop />
+      </Suspense>
+    </>
   );
 }
 
